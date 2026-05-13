@@ -67,6 +67,11 @@
    - 理解每个模块开发后为什么必须沉淀模块文档。
    - 理解为什么文档读取引导必须配置化，让 AI 根据任务类型读取正确文档。
 
+6. `notes/frontend-component-catalog.md`
+   - 理解为什么前端组件必须有统一组件目录。
+   - 理解机器可读 Component Registry 与人类可浏览 Component Explorer 应来自同一个组件元数据源。
+   - 理解组件说明不能只描述 UI props，还必须描述 data、permission、tenant、backend contract、audit 等语义绑定。
+
 ## 给具体语言 admin 框架的实现要求
 
 当你创建或维护某个具体语言的 admin 框架仓库时，例如：
@@ -100,10 +105,15 @@
    - ORM、认证、权限、表单、表格、文件、导入导出、任务队列等能力应优先评估成熟生态组件。
    - 组件不是简单堆叠，要追求组件间的语义协同和 1 + 1 > 2。
 
-6. **必须显式维护前后端语义关系。**
+7. **必须显式维护前后端语义关系。**
    - Admin 前端中的页面、表格、表单、搜索栏、功能栏、导入导出、文件上传、验证码、租户管理等，都应能追踪到后端 contract、权限、数据模型、租户上下文、审计或公共能力。
 
-7. **必须支持长期演进。**
+8. **必须提供前端组件目录。**
+   - 具体语言实现应提供机器可读的 Component Registry / Component Catalog，供 AI 查询组件能力。
+   - 也应提供人类可浏览的 Component Explorer / 组件说明界面，用于展示组件用途、属性、扩展点、示例、反例和后端语义绑定。
+   - 两者应来自同一个组件元数据源，避免人读的文档和 AI 读的 registry 不一致。
+
+9. **必须支持长期演进。**
    - 框架不只服务第一次生成，也要支持查询、修改、验证、解释、迁移、废弃、文档更新和决策沉淀。
 
 ## 后续仓库关系
@@ -130,5 +140,6 @@ only-ai-admin/
     ecosystem-component-selection.md
     frontend-backend-coupling.md
     code-comments-and-doc-reading.md
+    frontend-component-catalog.md
 ```
 
